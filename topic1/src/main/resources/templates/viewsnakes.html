@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>View Snakes</title>
+        <style>
+            .snake-list {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .snake {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            }
+
+            .header {
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>CST-323 Topic 1 Test Application View Snakes Page</h2>
+        <h2 th:text="${message}">Default Text</h2>
+
+        <a th:href="@{/}">Go Back Home</a><br>
+        <a th:href="@{/snakes/addsnakes}">Add Snakes</a><br>
+
+        <h3>Snake Lissssssst</h3>
+        <div class="snake-list">
+            <div class="snake header">
+                <div>Family</div>
+                <div>Type</div>
+                <div>Morph</div>
+                <div>Life Span</div>
+                <div>Adult Size</div>
+                <div>Current Age</div>
+            </div>
+            <div class="snake" th:each="snake: ${snakes}">
+                <div th:text="${snake.family}"></div>
+                <div th:text="${snake.type}"></div>
+                <div th:text="${snake.morph}"></div>
+                <div th:text="${snake.lifespan}"></div>
+                <div th:text="${snake.adultSize}"></div>
+                <div th:text="${snake.currentAge}"></div>
+            </div>
+        </div>
+    </body>
+</html>
