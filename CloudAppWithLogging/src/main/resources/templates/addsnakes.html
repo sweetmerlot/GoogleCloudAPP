@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title>Add Snakes</title>
+		<style>
+			#snake-form {
+				display: flex;
+				flex-direction: column;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h2>CST-323 Topic 1 Test Application Add Snakes Page</h2>
+		<h2 th:text="${message}">This is my default text</h2><br>
+
+		<a th:href="@{/}">Go Back Home</a><br>
+		<a th:href="@{viewsnakes}">View Snakes</a><br>
+
+		<form id="snake-form" action="#" th:action="@{addsnakes}" th:object="${snakeModel}" method="post">
+			<label>Family</label>
+			<input th:field="*{family}" type="text" />
+			<label>Type</label>
+			<input th:field="*{type}" type="text" />
+			<label>Morph</label>
+			<input th:field="*{morph}" type="text" />
+			<label>Lifespan</label>
+			<input th:field="*{lifespan}" type="number" />
+			<label>Adult Size (inches)</label>
+			<input th:field="*{adultSize}" type="number" />
+			<label>Current Age</label>
+			<input th:field="*{currentAge}" type="number" />
+			<button type="submit">Create Ssssssnake</button>
+		</form>
+	</body>
+</html>
